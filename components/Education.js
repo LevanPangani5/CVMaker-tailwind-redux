@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {removeData,educationCenter,degreeQuality,finishDate,discription} from '../slices/educationSlice'
 import {setFinishDate,setDegree,setInstitute} from '../slices/validation/educationValidationSlice'
+import { setfinishDate } from '../slices/validation/experienceValidationSlice'
 
 const TEXT_REGEX= /[ა-ჰa-zA-Z0-9_.& ]{2,}$/
 const DATE_REGEX= /\d{3}-\d{2}-\d{2}$/
@@ -26,19 +27,21 @@ function Education({education,dispatch}) {
 
   const onInstituteCHange=(e)=>{
     dispatch(educationCenter({id:education.id, institute:e.target.value}))
+    console.log('oninstitue change')
+    console.log(TEXT_REGEX.test(e.target.value))
     dispatch(setInstitute({id:education.id,institute:TEXT_REGEX.test(e.target.value)}))
   }
   const onDegreeChange=(e)=>{
     dispatch(degreeQuality({id:education.id, degree:e.target.value}))
-    dispatch(setInstitute({id:education.id,institute:true}))
+    dispatch(setDegree({id:education.id,degree:true}))
   }
 
   const onDueDateChange=(e)=>{
     dispatch(finishDate({id:education.id ,due_date:e.target.value}))
-    dispatch(setInstitute({id:education.id,institute:DATE_REGEX.test(e.target.value)}))
-  }
-
-    
+    console.log('on due date change')
+    console.log(DATE_REGEX.test(e.target.value))
+    dispatch(setfinishDate({id:education.id,due_date:DATE_REGEX.test(e.target.value)}))
+  }    
   return (
     <div>
      <div className="flex flex-wrap -mx-3 mb-6">
@@ -72,7 +75,7 @@ function Education({education,dispatch}) {
        onChange={e=>onDegreeChange(e)}
        onBlur={()=>setFocusedDegree(true)} focused={focusedDegree.toString()}
        required>
-        {degrees.map(obj=>(
+       {degrees.map(obj=>(
         <option className=" bg-gray-200 font-semibold "  value={obj.title} >
            {obj.title}
         </option>
