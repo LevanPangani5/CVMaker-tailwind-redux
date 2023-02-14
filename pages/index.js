@@ -38,11 +38,11 @@ const Home = () => {
       }
     }
   return (
-    <div className=' overflow-x-hidden ' id ='wrapper'>
+    <div className=' overflow-x-hidden  ' id ='wrapper'>
     <div className='flex flex-row items-center  w-screen lg:h-full relative'>
      {pageNumber== 0 && selectedPage(pageNumber)}
      {pageNumber== 4 && 
-     <div className='flex flex-row w-screen  '>
+     <div className='flex flex-row w-screen'>
        
        <div className='mt-11 ml-12 pl-10  static  ' >
        

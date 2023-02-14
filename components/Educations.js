@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react'
 import Education from './Education'
+import { useSelector } from 'react-redux'
 import {addEducation,removeEducation,clearEducation} from '../slices/educationSlice'
 import {clearEducationValidation,removeEducationValidation,
   addEducationValidation} from '../slices/validation/educationValidationSlice'
 const Educations = ({educations,dispatch}) => {
-  
+  const valideducation = useSelector(state => state.educationValidation.value)
+       useEffect(()=>{console.log('educations.js')
+        console.log(valideducation)
+        console.log(educations)
+      },[educations])
      return (
       <div className='w-full h-full'>
        {educations.map((education)=>(

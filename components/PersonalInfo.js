@@ -69,6 +69,7 @@ const PersonalInfo = ({personalInfo,dispatch}) => {
     reader.readAsDataURL(e.target.files[0])
     reader.addEventListener('load',()=>{
       dispatch(image(reader.result))
+      dispatch(setImage(true))
     })   
   }
 
@@ -122,15 +123,7 @@ const PersonalInfo = ({personalInfo,dispatch}) => {
         </label>
         
     </div>
-    <div className="container flex items-center w-1/4 ">
-      <div className="flex justify-start">
-          <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold 
-          py-2 px-4 rounded" onClick={()=>{
-            dispatch(removeImage())
-            dispatch(setImage(false))
-            }}>Remove</button>
-      </div>
-  </div>
+   
   </div>
   <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full px-3">

@@ -5,7 +5,7 @@ import {setPosition,setEmployer,setStartDate,setfinishDate} from '../slices/vali
 
 const TEXT_REGEX= /[ა-ჰa-zA-Z0-9_.& ]{2,}$/
 const DATE_REGEX= /\d{3}-\d{2}-\d{2}$/
-const Experience = ({experience,dispatch, expereiceValidation}) => {
+const Experience = ({experience,dispatch}) => {
 
 //const validPersonalInfo = useSelector(state => state.personalInfoValidation.value)
   const[focusedPosition,setFocusedPosition]=useState(false);

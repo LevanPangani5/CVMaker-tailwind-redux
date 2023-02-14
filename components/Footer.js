@@ -7,6 +7,7 @@ const Footer = ({dispatch, next,prev,pageNumber, }) => {
 
   const validPersonalInfo = useSelector(state => state.personalInfoValidation.value)
   const validExperiences = useSelector(state => state.experienceValidation.value)
+  const validEducations= useSelector(state=>state.educationValidation.value)
   useEffect(()=>{
       console.log('footer validation')
       console.log(validExperiences)
@@ -23,14 +24,32 @@ const Footer = ({dispatch, next,prev,pageNumber, }) => {
   const checkExperience=()=>{
     console.log('inside footer')
     console.log(validExperiences)
-    let index= validExperiences.findIndex(exp=>{!exp.position||!exp.employer||exp.start_date==false||exp.due_date==false})
+    let isValid=-1;
+     validExperiences.map((exp)=>{
+      if(!exp.position||!exp.employer||exp.start_date==false||exp.due_date==false){
+        isValid=exp.id;
+      }})
    console.log('herere')
-   console.log(index)
-    if(index ==-1){
+   console.log(isValid)
+    if(isValid ==-1){
       dispatch(next())
     }
   }
   
+  const checkEducation=()=>{
+    console.log('inside footer')
+    console.log(validEducations)
+    let isValid=-1;
+    validEducations.map((edu)=>{
+      if(!edu.institute||!edu.degree||edu.due_date==false){
+        isValid=edu.id;
+      }})
+   console.log('herere')
+   console.log(isValid)
+    if(isValid ==-1){
+      dispatch(next())
+    }
+  }
  /* const onFinish=async ()=>{
     const data={
       name:personalInfo.name,
@@ -60,7 +79,13 @@ const Footer = ({dispatch, next,prev,pageNumber, }) => {
               <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
               onClick={()=>dispatch(prev())}>prev</button>
               <button  className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded" 
-               onClick={()=>checkExperience()}>
+               onClick={()=>{
+                if(pageNumber==2){
+                checkExperience()}
+                else{
+                  checkEducation()
+                }
+                }}>
               {pageNumber == 3?'Finish':'Next'}
               </button>
              </div>

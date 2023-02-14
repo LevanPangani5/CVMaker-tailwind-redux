@@ -4,6 +4,8 @@ import { clearEducation } from '../slices/educationSlice'
 import { clearExperience } from '../slices/experienceSlice'
 import { clearPersonalIfo } from '../slices/personalInfoSlice'
 import { clearEducationValidation } from '../slices/validation/educationValidationSlice'
+import { clearPersonalValidation } from '../slices/validation/personalInfoValidationSlice'
+import { clearExperienceValidation } from '../slices/validation/experienceValidationSlice'
 
 const Restart = ({dispatch, goToStart}) => {
   return (
@@ -13,9 +15,9 @@ const Restart = ({dispatch, goToStart}) => {
       dispatch(clearEducation())
         dispatch(clearEducationValidation())
         dispatch(clearPersonalIfo())
-        dispatch(clearEducationValidation())
         dispatch(clearExperience())
-        dispatch(clearEducationValidation())
+        dispatch(clearExperienceValidation())
+        dispatch(clearPersonalValidation())
         }}>
           <IoIosArrowBack className='h-5 w-5'/>
         </button>

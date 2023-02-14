@@ -56,7 +56,7 @@ function Education({education,dispatch}) {
         onBlur={()=>setFocusedInstitute(true)} focused={focusedInstitute.toString()}
         pattern='[ა-ჰa-zA-Z0-9_.& ]{2,}$'
         required/>
-        <p className="text-gray-600 text-xs italic pt-3">Minimum 2 symbols</p>
+        <span className="text-gray-600 text-xs italic pt-3">Minimum 2 symbols</span>
       </div>
     </div>
     
