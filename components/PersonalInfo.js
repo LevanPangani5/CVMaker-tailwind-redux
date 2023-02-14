@@ -64,27 +64,14 @@ const PersonalInfo = ({personalInfo,dispatch}) => {
     //dispatch(setPhoneNumber(PHONE_NUMBER_REGEX.test(personalInfo.phone_number)))
   }
 
-  const onImageChage=(e)=>{
-
+    const onImageChage=(e)=>{
     let reader = new FileReader()
-    //let data=reader.readAsArrayBuffer(e.target.files[0])
-    //let data=reader.readAsBinaryString(e.target.files[0])
-
+    reader.readAsDataURL(e.target.files[0])
     reader.addEventListener('load',()=>{
-      console.log(reader.result)
       dispatch(image(reader.result))
-
-     // var arrayBufferView = new Uint8Array(reader.result );
-     // var blob = new Blob( [ arrayBufferView ], { type: "image/jpeg" } );
-     // var urlCreator = window.URL || window.webkitURL;
-     // var imageUrl = urlCreator.createObjectURL( blob );
-    })
-   
-   //dispatch(image(data))
-  // dispatch(setImage(true))
+    })   
   }
 
-  
   useEffect(()=>{
     console.log('personal info')
     console.log(personalInfo)

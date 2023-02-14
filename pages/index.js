@@ -67,7 +67,7 @@ const Home = () => {
        </div>
      </div></div> }
      
-    <div className="  w-4/10 lg:h-full bg-gray-100 pl-10 pr-10">
+    <div className=" w-1/2 lg:h-full bg-gray-100 pl-10 pr-10">
       <div className='flex items-center' id='header'>
          {(pageNumber!= 0 && pageNumber!=4) && <Restart dispatch={dispatch} goToStart={goToStart}/>}
          {(pageNumber != 0 && pageNumber !=4)&&(<Header 

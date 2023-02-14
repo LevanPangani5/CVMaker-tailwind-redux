@@ -69,7 +69,7 @@ const PersonalInfoReader = ({personalInfo}) => {
             </div>
             <div  className='lg:col-span-4 mt-5 mr-5' id='right'>
               <img className=' w-50 h-60 rounded-full 
-              lg:h-45 lg:w-60'  src={imageObj}  style={{display:imageObj==''&&'none'}}/>
+              lg:h-45 lg:w-60  mb-5'  src={imageObj}  style={{display:imageObj==''&&'none'}}/>
            </div>
         </div>
         {Boolean(personalInfo.email !='' && personalInfo.phone_number !='' && personalInfo.name !='' && personalInfo.surname !='')&&
