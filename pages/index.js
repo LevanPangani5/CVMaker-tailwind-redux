@@ -39,7 +39,7 @@ const Home = () => {
     }
   return (
     <div className=' overflow-x-hidden ' id ='wrapper'>
-    <div className='flex flex-row items-center justify-center w-screen lg:h-full relative'>
+    <div className='flex flex-row items-center  w-screen lg:h-full relative'>
      {pageNumber== 0 && selectedPage(pageNumber)}
      {pageNumber== 4 && 
      <div className='flex flex-row w-screen  '>
@@ -67,7 +67,7 @@ const Home = () => {
        </div>
      </div></div> }
      
-    <div className="  w-5/10 lg:h-full bg-gray-100 pl-10 pr-10">
+    <div className="  w-4/10 lg:h-full bg-gray-100 pl-10 pr-10">
       <div className='flex items-center' id='header'>
          {(pageNumber!= 0 && pageNumber!=4) && <Restart dispatch={dispatch} goToStart={goToStart}/>}
          {(pageNumber != 0 && pageNumber !=4)&&(<Header 

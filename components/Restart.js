@@ -10,7 +10,7 @@ const Restart = ({dispatch, goToStart}) => {
     <div className='px-4 py-2 text-xs lg:px-5 lg:py-3 lg:text-base bg-gray-50 rounded-full w-5 h-10
        flex items-center justify-center mr-5 '>
         <button onClick={()=>{dispatch(goToStart())
-       dispatch(clearEducation())
+      dispatch(clearEducation())
         dispatch(clearEducationValidation())
         dispatch(clearPersonalIfo())
         dispatch(clearEducationValidation())

@@ -6,7 +6,7 @@ import {clearEducationValidation,removeEducationValidation,
 const Educations = ({educations,dispatch}) => {
   
      return (
-      <div>
+      <div className='w-full h-full'>
        {educations.map((education)=>(
         <div>
         <Education education={education} dispatch={dispatch}/>
