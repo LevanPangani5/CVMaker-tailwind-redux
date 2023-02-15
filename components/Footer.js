@@ -50,8 +50,8 @@ const Footer = ({dispatch, next,prev,pageNumber, }) => {
       dispatch(next())
     }
   }
- /* const onFinish=async ()=>{
-    const data={
+  const onFinish=async ()=>{
+    const dataSerialized=Object.fromEntries({
       name:personalInfo.name,
       surname:personalInfo.surname,
       phone_number:personalInfo.phone_number,
@@ -59,17 +59,26 @@ const Footer = ({dispatch, next,prev,pageNumber, }) => {
       educations:educations,
       image:personalInfo.image,
       about_me:personalInfo.about_me,
-    }
+    })
+    const dataJson = JSON.stringify(dataSerialized)
 
     const sendData= async()=>{
-      axios.post('https://resume.redberryinternship.ge/api/cvs',data).then(res=>{data=res})
+      axios.post('https://resume.redberryinternship.ge/api/cvs',dataJson).then(res=>{data=res})
     }
-    await sendData()
+    /*const sendData2 = await fetch('url',{
+      method:'POST',
+      body:dataJson,
+      headers:{
+        'Content-Type':'application/json',  
+      },
+    })
+    const response= await sendData2.json()
+    await sendData()*/
 
     dispatch(next())
    
 
-  }*/
+  }
   return (
     <footer class="text-center  text-black mt-5 pt-10 pb-7 mb-1 ">
         <div>
